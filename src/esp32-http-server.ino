@@ -67,12 +67,12 @@ void setup(void) {
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
 
-  /*
+  
   if(!SPIFFS.begin(true)){
         Serial.println("SPIFFS Mount Failed");
         return;
   }
-  */
+  
     
 
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD, WIFI_CHANNEL);

@@ -43,7 +43,7 @@ def post_program_action(source, target, env):
 
     littlefs_data = "data"
     littlefs = join(env.subst("$BUILD_DIR"),"littlefs.bin")
-    fs_size = "1408000"
+    fs_size = "1441792"
     littlefscmd = (tool,"-c",littlefs_data,"-s",fs_size,littlefs)
     #cmd = (tool, "-h")
     subprocess.call(littlefscmd, shell=False)
