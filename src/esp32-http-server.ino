@@ -28,6 +28,10 @@ bool led1State = false;
 bool led2State = false;
 
 void sendHtml() {
+  File index_html = SPIFFS.open("/index.html"); 
+  String response  = index_html.readString();
+  index_html.close();
+  /*
   String response = R"(
     <!DOCTYPE html><html>
       <head>
@@ -57,6 +61,7 @@ void sendHtml() {
       </body>
     </html>
   )";
+  */
   response.replace("LED1_TEXT", led1State ? "ON" : "OFF");
   response.replace("LED2_TEXT", led2State ? "ON" : "OFF");
   server.send(200, "text/html", response);
@@ -115,7 +120,7 @@ void setup(void) {
         digitalWrite(LED2, led2State);
         break;
     }
-
+    Serial.println("getting HTML from SPIFFS...");
     sendHtml();
   });
 
