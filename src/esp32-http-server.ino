@@ -12,7 +12,7 @@
 #include <WebServer.h>
 #include <uri/UriBraces.h>
 #include "FS.h"
-#include "SPIFFS.h"
+#include <LittleFS.h>
 
 #define WIFI_SSID "Wokwi-GUEST"
 #define WIFI_PASSWORD ""
@@ -28,7 +28,7 @@ bool led1State = false;
 bool led2State = false;
 
 void sendHtml() {
-  File index_html = SPIFFS.open("/index.html"); 
+  File index_html = LittleFS.open("/index.html"); 
   String response  = index_html.readString();
   index_html.close();
   /*
@@ -73,12 +73,12 @@ void setup(void) {
   pinMode(LED2, OUTPUT);
 
   
-  if(!SPIFFS.begin(true)){
+  if(!LittleFS.begin(true)){
         Serial.println("SPIFFS Mount Failed");
         return;
   }
   
-  File root = SPIFFS.open("/");
+  File root = LittleFS.open("/");
  
   File file = root.openNextFile();
  
@@ -120,7 +120,7 @@ void setup(void) {
         digitalWrite(LED2, led2State);
         break;
     }
-    Serial.println("getting HTML from SPIFFS...");
+    Serial.println("getting HTML from LittleFS...");
     sendHtml();
   });
 
