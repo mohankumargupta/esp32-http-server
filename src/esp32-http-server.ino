@@ -16,10 +16,11 @@
 
 #define WIFI_SSID "Wokwi-GUEST"
 #define WIFI_PASSWORD ""
-// Defining the WiFi channel speeds up the connection:
+
 #define WIFI_CHANNEL 6
 
 WebServer server(80);
+
 
 const int LED1 = 26;
 const int LED2 = 27;
