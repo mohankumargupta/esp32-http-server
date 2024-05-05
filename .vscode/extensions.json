@@ -3,9 +3,12 @@
     // for the documentation about the extensions.json format
     "recommendations": [
         "platformio.platformio-ide",
-        "wokwi.wokwi-vscode"
+        "wokwi.wokwi-vscode",
+        "discretegames.f5anything",
     ],
     "unwantedRecommendations": [
-        "ms-vscode.cpptools-extension-pack"
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode-remote.remote-wsl",
+        "ms-azuretools.vscode-docker",
     ]
 }
